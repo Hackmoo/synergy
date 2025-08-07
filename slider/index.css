@@ -1,0 +1,50 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100svw;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: 0.5s ease-in-out;
+}
+
+.picture {
+    width: 100%;
+    height: 100%;
+    object-fit: fit;
+    flex-shrink: 0;
+}
+
+.btnFor {
+    position: absolute;
+    top: 25%;
+    height: 20rem;
+    right: 0;
+}
+
+.btnPrev {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 20rem;
+}
+
+.currentSlideLabel {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
