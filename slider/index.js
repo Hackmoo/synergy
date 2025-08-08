@@ -10,7 +10,7 @@ let sliderState = false; // Состояние работы слайдера д�
 
 let pictures = []; // Массив с DOM элементами фотографий
 
-const updateCurrentSliderLabel = () => {
+const updateCurrentSliderLabel = () => { // Обновление надписи текущий слайд
   counter.innerHTML = `Текущий слайд: ${currentSlide + 1} из ${assets.length}`
 }
 
