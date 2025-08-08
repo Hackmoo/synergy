@@ -10,6 +10,12 @@ let sliderState = false; // Состояние работы слайдера д�
 
 let pictures = []; // Массив с DOM элементами фотографий
 
+const updateCurrentSliderLabel = () => {
+  counter.innerHTML = `Текущий слайд: ${currentSlide + 1} из ${assets.length}`
+}
+
+updateCurrentSliderLabel()
+
 if (assets.length > 0) // Динамически заполняю массив фотографий через папку assets при условии что папка assets не пустая 
   assets.map((el) => {
     let temp = document.createElement("img"); // Создаю и заполняю DOM элемент image
@@ -21,6 +27,8 @@ if (assets.length > 0) // Динамически заполняю массив �
 
 pictures.map((el) => slider.appendChild(el)); // При помощи метода map прикрепляю сгенерированные DOM элементы к слайдеру
 
+
+
 forwardBtn.addEventListener("click", () => { // Логика работы кнопки вперёд
   if(sliderState) return; // Проверка на выполнение анимации
   if (currentSlide === assets.length - 1) currentSlide = -1; // Переключение на 1 элемент слайдера при достижении последнего 
@@ -29,7 +37,7 @@ forwardBtn.addEventListener("click", () => { // Логика работы кно
     sliderState = false
   }, 500)
   currentSlide++; // Переключение счёта текущего слайда
-  counter.innerHTML = `Текущий слайд: ${currentSlide}` // Замена текста в тексте счётчика 
+  updateCurrentSliderLabel() // Замена текста в тексте счётчика 
   slider.style.transform = `translateX(-${100 * currentSlide}%)`; // Логика смены изображения 
 });
 previousBtn.addEventListener("click", () => { // Логика работы кнопки назад
@@ -40,6 +48,6 @@ previousBtn.addEventListener("click", () => { // Логика работы кн�
     sliderState = false 
   }, 500)
   currentSlide--; // Переключение счёта текущего слайда
-  counter.innerHTML = `Текущий слайд: ${currentSlide}` // Замена текста в тексте счётчика 
+  updateCurrentSliderLabel() // Замена текста в тексте счётчика 
   slider.style.transform = `translateX(-${100 * currentSlide}%)`; // Логика смены изображения 
 });
